@@ -1,8 +1,16 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { IPost } from '../pages/index'
 
-const Template = ({data, location}: any) => {
+interface IProps {
+  data: {
+    markdownRemark: IPost,
+  }
+  location: string
+}
+
+const Template: React.SFC<IProps> = ({data, location}) => {
   const {markdownRemark: post} = data
   const {frontmatter, html} = post
   const {title, date} = frontmatter
