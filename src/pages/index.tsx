@@ -1,22 +1,22 @@
-import Link from 'gatsby-link'
-import * as React from 'react'
+import Link from 'gatsby-link';
+import * as React from 'react';
 
 export interface IFrontmatter {
-  title: string
-  date: string
-  path: string
-  tags: string[]
-  excerpt: string
+  title: string;
+  date: string;
+  path: string;
+  tags: string[];
+  excerpt: string;
 }
 
 export interface IPost {
-  id: string
-  html: string
-  frontmatter: IFrontmatter,
+  id: string;
+  html: string;
+  frontmatter: IFrontmatter;
 }
 
 interface INode {
-  node: IPost
+  node: IPost;
 }
 
 interface IProps {
@@ -25,15 +25,15 @@ interface IProps {
       totalCount: number
       edges: INode[],
     },
-  }
+  };
 }
 
 const IndexPage: React.SFC<IProps> = ({data}) => {
-  const { edges: posts } = data.allMarkdownRemark
+  const { edges: posts } = data.allMarkdownRemark;
   return (
     <div>
       {posts.map(({node: post}) => {
-        const {frontmatter} = post
+        const {frontmatter} = post;
 
         return (
           <div key={frontmatter.path}>
@@ -41,11 +41,11 @@ const IndexPage: React.SFC<IProps> = ({data}) => {
             <p>{frontmatter.date}</p>
             <p>{frontmatter.excerpt}</p>
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query IndexQuery {
@@ -66,6 +66,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

@@ -1,9 +1,9 @@
-import Link from 'gatsby-link'
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
-import Helmet from 'react-helmet'
+import Link from 'gatsby-link';
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
+import Helmet from 'react-helmet';
 
-import './index.css'
+import './index.css';
 
 const Header = () => (
   <div
@@ -32,7 +32,7 @@ const Header = () => (
       </h1>
     </div>
   </div>
-)
+);
 
 const TemplateWrapper = ({ children }: any) => (
   <div>
@@ -55,10 +55,10 @@ const TemplateWrapper = ({ children }: any) => (
       {children()}
     </div>
   </div>
-)
+);
 
 // TemplateWrapper.propTypes = {
 //   children: PropTypes.func,
 // }
 
-export default TemplateWrapper
+export default TemplateWrapper;

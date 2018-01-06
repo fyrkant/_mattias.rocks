@@ -1,19 +1,19 @@
-import Link from 'gatsby-link'
-import * as React from 'react'
-import Helmet from 'react-helmet'
-import { IPost } from '../pages/index'
+import Link from 'gatsby-link';
+import * as React from 'react';
+import Helmet from 'react-helmet';
+import { IPost } from '../pages/index';
 
 interface IProps {
   data: {
     markdownRemark: IPost,
-  }
-  location: string
+  };
+  location: string;
 }
 
 const Template: React.SFC<IProps> = ({data, location}) => {
-  const {markdownRemark: post} = data
-  const {frontmatter, html} = post
-  const {title, date} = frontmatter
+  const {markdownRemark: post} = data;
+  const {frontmatter, html} = post;
+  const {title, date} = frontmatter;
   return (
     <div>
       <Helmet title={title} />
@@ -23,8 +23,8 @@ const Template: React.SFC<IProps> = ({data, location}) => {
         <div dangerouslySetInnerHTML={{__html: html}} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
@@ -39,6 +39,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Template
+export default Template;
