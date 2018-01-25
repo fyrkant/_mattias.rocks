@@ -49,7 +49,9 @@ const IndexPage: React.SFC<IProps> = ({data}) => {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark {
+    allMarkdownRemark (
+      sort: { order: DESC, fields: [frontmatter___date]}
+    ) {
       totalCount
       edges {
         node {
