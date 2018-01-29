@@ -1,3 +1,11 @@
+// Prism.languages.typescript = Prism.languages.extend('javascript', {
+// 	// From JavaScript Prism keyword list and TypeScript language spec: https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#221-reserved-words
+// 	'keyword': /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield|false|true|module|declare|constructor|namespace|abstract|require|type)\b/,
+// 	'builtin': /\b(?:string|Function|any|number|boolean|Array|symbol|console)\b/
+// });
+
+// Prism.languages.ts = Prism.languages.typescript;
+
 module.exports = {
   siteMetadata: {
     title: 'mattias.rocks'
@@ -5,13 +13,39 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {           
+              classPrefix: "language-",
+            },
+          },
+        ]
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src`
+        path: `${__dirname}/src`,
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-graphcms`,
+      options: {
+        endpoint: `https://api.graphcms.com/simple/v1/cjcxxfzrv2avm0124y7molwz2`,
+        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MTcwOTI2OTQsImNsaWVudElkIjoiY2l2Z29zNmNqMDE5MjAxODRucDAxZGRkMiIsInByb2plY3RJZCI6ImNqY3h4ZnpydjJhdm0wMTI0eTdtb2x3ejIiLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqY3h4dGo0bjI2ZDUwMTI3em9ubHNoaTkifQ.sbRHpzbPRkGedcQnyuaxlLnmRTzTJRN49dhZuz9m50E',
+        query: `{
+          allPosts {
+            id
+            title
+            content
+          }
+        }`,
+      },
+    },
   ]
 };
