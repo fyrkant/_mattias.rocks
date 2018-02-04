@@ -1,26 +1,26 @@
-import Link from 'gatsby-link';
+// import Link from 'gatsby-link';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { IPost } from '../pages/index';
 
 interface IProps {
   data: {
-    markdownRemark: IPost,
+    markdownRemark: IPost;
   };
   location: string;
 }
 
-const Template: React.SFC<IProps> = ({data, location}) => {
-  const {markdownRemark: post} = data;
-  const {frontmatter, html} = post;
-  const {title, date} = frontmatter;
+const Template: React.SFC<IProps> = ({ data, location }) => {
+  const { markdownRemark: post } = data;
+  const { frontmatter, html } = post;
+  const { title, date } = frontmatter;
   return (
     <div>
       <Helmet title={title} />
       <div>
         <h1>{title}</h1>
         <h3>{date}</h3>
-        <div dangerouslySetInnerHTML={{__html: html}} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>
   );

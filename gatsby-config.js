@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript',
+    'gatsby-plugin-stylus',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-transformer-remark',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Fragment } from 'react';
+// import { Fragment } from 'react';
 
 import { Highscore } from '../components/Highscore';
 import { Television } from '../components/Television';
@@ -7,7 +7,7 @@ import { Television } from '../components/Television';
 import '../layouts/dscore.css';
 
 const DScore = () => (
-  <div className='dscore'>
+  <div className="dscore">
     <div>
       <Television />
       <div>

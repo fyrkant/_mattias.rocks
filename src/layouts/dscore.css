@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -31,13 +32,13 @@ div.dscore ol {
   opacity: 0;
 }
 div.dscore ol.active {
-  opacity: .8;
+  opacity: 0.8;
   transition: 0.7s ease-in;
 }
 div.dscore li {
-  opacity: .8;
+  opacity: 0.8;
   font-size: 10vw;
-  margin: .5em;
+  margin: 0.5em;
   font-family: VT323;
   color: white;
 }

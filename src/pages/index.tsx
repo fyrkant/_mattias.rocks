@@ -22,23 +22,25 @@ interface INode {
 interface IProps {
   data: {
     allMarkdownRemark: {
-      totalCount: number
-      edges: INode[],
-    },
+      totalCount: number;
+      edges: INode[];
+    };
   };
 }
 
-const IndexPage: React.SFC<IProps> = ({data}) => {
+const IndexPage: React.SFC<IProps> = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
   return (
     <div>
-      {posts.map(({node: post}) => {
-        const {frontmatter} = post;
+      {posts.map(({ node: post }) => {
+        const { frontmatter } = post;
 
         return (
-          <div key={frontmatter.path}>
-            <h2><Link to={frontmatter.path}>{frontmatter.title}</Link></h2>
-            <p>{frontmatter.date}</p>
+          <div className="post-card" key={frontmatter.path}>
+            <h2>
+              <Link to={frontmatter.path}>{frontmatter.title}</Link>
+            </h2>
+            <time>{frontmatter.date}</time>
             <p>{frontmatter.excerpt}</p>
           </div>
         );
@@ -49,9 +51,7 @@ const IndexPage: React.SFC<IProps> = ({data}) => {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark (
-      sort: { order: DESC, fields: [frontmatter___date]}
-    ) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       totalCount
       edges {
         node {
