@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Highscore } from '../components/Highscore';
 import { Television } from '../components/Television';
 
-import '../layouts/dscore.css';
+import '../layouts/dscore.less';
 
 const DScore = () => (
   <div className="dscore">

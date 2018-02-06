@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  // align-items: center;
+  margin: 0 auto;
+  padding: 1em;
+
+  header {
+    width: fit-content;
+    h1 {
+      a,
+      a:active,
+      a:hover {
+        border-bottom: 0;
+      }
+      a:hover {
+        color: var(--red);
+      }
+      margin-bottom: 0;
+      font-size: 3em;
+    }
+    // p {
+    //   margin: 0;
+    // }
+    div {
+      background: linear-gradient(90deg, var(--red), var(--turcoise));
+      width: 100%;
+      margin-top: -0.6em;
+      height: 0.4em;
+    }
+  }
+}
+
+.post-card {
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+  time {
+    font-size: 0.85em;
+  }
+  p {
+    margin-top: 0.5em;
+  }
+}

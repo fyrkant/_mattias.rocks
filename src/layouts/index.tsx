@@ -4,9 +4,8 @@ import * as React from 'react';
 import { SFC } from 'react';
 import Helmet from 'react-helmet';
 
-import './index.styl';
-import './layout.styl';
-import './prism.styl';
+import './index.less';
+import './layout.less';
 
 const Header: SFC<{
   title: string;
