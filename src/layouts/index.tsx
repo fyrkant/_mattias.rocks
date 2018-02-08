@@ -4,8 +4,9 @@ import * as React from 'react';
 import { SFC } from 'react';
 import Helmet from 'react-helmet';
 
-import './index.less';
-import './layout.less';
+// import '../../node_modules/modern-normalize/modern-normalize.css';
+import '../less/base.less';
+import '../less/layout.less';
 
 const Header: SFC<{
   title: string;

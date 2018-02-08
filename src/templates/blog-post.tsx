@@ -3,7 +3,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { IPost } from '../pages/index';
 
-import '../layouts/prism.less';
+import '../less/prism.less';
 
 interface IProps {
   data: {
@@ -19,9 +19,9 @@ const Template: React.SFC<IProps> = ({ data, location }) => {
   return (
     <div>
       <Helmet title={title} />
-      <div>
-        <h1>{title}</h1>
-        <h3>{date}</h3>
+      <div className="post-container">
+        <h1 className="title">{title}</h1>
+        <p className="date">{date}</p>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>

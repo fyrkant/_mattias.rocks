@@ -1,0 +1,79 @@
+@import './variables.less';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  // align-items: center;
+  margin: 0 auto;
+  padding: 1em;
+
+  header {
+    width: fit-content;
+    h1 {
+      a,
+      a:active,
+      a:hover {
+        border-bottom: 0;
+      }
+      a:hover {
+        color: @red;
+      }
+      margin-bottom: 0;
+      font-size: 3em;
+    }
+    p {
+      font-family: monospace;
+    }
+    div {
+      background: linear-gradient(90deg, @red, @turcoise);
+      width: 100%;
+      margin-top: -0.6em;
+      height: 0.4em;
+    }
+  }
+}
+
+.post-card {
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+  time {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+  p {
+    margin-top: 0.5em;
+  }
+}
+
+div.post-container {
+  .title {
+    margin-bottom: 0;
+  }
+  .date {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+  p > code {
+    background-color: @gray;
+    color: @black;
+    padding: 0.2em;
+
+    &:after,
+    &:before {
+      content: none;
+    }
+  }
+  blockquote {
+    padding: 20px 30px 20px 30px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 500px;
+    border: solid 2px;
+    box-shadow: 15px 15px 0 0 @dark-gray;
+  }
+}

@@ -1,15 +1,4 @@
-:root {
-  --black: #252b2e;
-  --gray: #d4d4d4;
-  --dark-gray: #7f7f7f;
-  --red: #e15a60;
-  --green: #99c794;
-  --yellow: #fac863;
-  --orange: #f99157;
-  --blue: #6699cc;
-  --purple: #c594c5;
-  --turcoise: #5fb3b3;
-}
+@import './variables.less';
 
 html {
   font-family: sans-serif;
@@ -59,8 +48,8 @@ template {
 
 a {
   text-decoration: none;
-  color: var(--black);
-  border-bottom: 0.1em solid var(--orange);
+  color: @black;
+  border-bottom: 0.1em solid @orange;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
@@ -68,8 +57,8 @@ a {
 a:active,
 a:hover {
   outline-width: 0;
-  color: var(--orange);
-  border-bottom: 0.1em solid var(--black);
+  color: @orange;
+  border-bottom: 0.1em solid @black;
 }
 
 abbr[title] {
@@ -258,7 +247,7 @@ html {
 }
 
 body {
-  color: var(--black);
+  color: @black;
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
