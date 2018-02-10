@@ -21,8 +21,10 @@
     "gatsby-source-filesystem": "^1.5.18",
     "gatsby-source-graphcms": "0.0.1",
     "gatsby-transformer-remark": "^1.7.31",
+    "history": "^4.7.2",
     "modern-normalize": "^0.2.0",
     "react-helmet": "^5.2.0",
+    "react-transition-group": "^2.2.1",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1",
     "webfontloader": "^1.6.28"

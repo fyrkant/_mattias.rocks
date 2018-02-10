@@ -4,20 +4,22 @@ import Helmet from 'react-helmet';
 import { IPost } from '../pages/index';
 
 import '../less/prism.less';
+import { TransitionStyle } from '../utils/getTransitionStyle';
 
 interface IProps {
   data: {
     markdownRemark: IPost;
   };
   location: string;
+  transition?: { style: TransitionStyle };
 }
 
-const Template: React.SFC<IProps> = ({ data, location }) => {
+const Template: React.SFC<IProps> = ({ data, location, transition }) => {
   const { markdownRemark: post } = data;
   const { frontmatter, html } = post;
   const { title, date } = frontmatter;
   return (
-    <div>
+    <div style={transition && transition.style}>
       <Helmet title={title} />
       <div className="post-container">
         <h1 className="title">{title}</h1>
