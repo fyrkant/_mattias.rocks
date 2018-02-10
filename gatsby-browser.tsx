@@ -93,6 +93,7 @@ class ReplaceComponentRenderer extends React.Component<any, any> {
 
 // eslint-disable-next-line react/display-name
 exports.replaceComponentRenderer = ({ props, loader }) => {
+  console.log(props);
   if (props.layout) {
     return undefined;
   }

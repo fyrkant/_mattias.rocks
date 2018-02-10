@@ -10,6 +10,7 @@
 
   header {
     width: fit-content;
+    transition: all ease-in 0.2s;
     h1 {
       a,
       a:active,
@@ -30,6 +31,19 @@
       width: 100%;
       margin-top: -0.6em;
       height: 0.4em;
+    }
+
+    &.back-link {
+      text-transform: uppercase;
+      font-family: monospace;
+    }
+
+    &.small {
+      // max-height: 200px;
+      // transform: scale(0.3);
+      display: none;
+      height: 0;
+      // transform-origin: left;
     }
   }
 }
@@ -60,6 +74,7 @@ div.post-container {
   }
   p > code {
     background-color: @gray;
+    border: 1px solid @dark-gray;
     color: @black;
     padding: 0.2em;
 
@@ -69,11 +84,16 @@ div.post-container {
     }
   }
   blockquote {
-    padding: 20px 30px 20px 30px;
-    margin: 50px auto;
-    width: 90%;
-    max-width: 500px;
-    border: solid 2px;
-    box-shadow: 15px 15px 0 0 @dark-gray;
+    text-align: left;
+    padding: 0.5em;
+    font-size: 1.01em;
+    position: relative;
+    right: 0;
+    background: @gray;
+    box-shadow: -2px 0 0 @black, -4px 0 0 @gray, -7px 0 0 @black;
+    .author {
+      text-align: right;
+      text-decoration: italic;
+    }
   }
 }

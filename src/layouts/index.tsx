@@ -1,7 +1,7 @@
 import Link from 'gatsby-link';
 // import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { SFC } from 'react';
+import { Fragment, SFC } from 'react';
 import Helmet from 'react-helmet';
 
 // import '../../node_modules/modern-normalize/modern-normalize.css';
@@ -11,14 +11,25 @@ import '../less/layout.less';
 const Header: SFC<{
   title: string;
   tagline: string;
-}> = (props) => (
-  <header>
-    <h1>
-      <Link to="/">{props.title}</Link>
-    </h1>
-    <p>{props.tagline}</p>
-  </header>
-);
+  isPostPage: boolean;
+}> = ({ title, tagline, isPostPage }) => {
+  if (!isPostPage) {
+    return (
+      <header>
+        <h1>
+          <Link to="/">{title}</Link>
+        </h1>
+        <p>{tagline}</p>
+      </header>
+    );
+  } else {
+    return (
+      <header className="back-link">
+        <Link to="/">{'<<'} Back</Link>
+      </header>
+    );
+  }
+};
 
 const TemplateWrapper = ({ children, location }: any) => (
   <div className="wrapper">
@@ -30,7 +41,11 @@ const TemplateWrapper = ({ children, location }: any) => (
       ]}
     />
     {location.pathname !== '/dscore' ? (
-      <Header title="mattias.rocks" tagline="programming padawan" />
+      <Header
+        isPostPage={location.pathname !== '/'}
+        title="mattias.rocks"
+        tagline="programming padawan"
+      />
     ) : (
       ''
     )}
