@@ -49,11 +49,47 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        trackingId: "UA-67513221-1",
-        // anonymize: true,
+        id: "UA-67513221-1",
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
       },
+    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: "UA-67513221-1",
+    //     // anonymize: true,
+    //   },
+    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "mattias.rocks",
+        short_name: "mattias.rocks",
+        start_url: "/",
+        background_color: "#6699cc",
+        theme_color: "#f99157",
+        display: "minimal-ui",
+        icons: [
+          {
+            // Everything in /static will be copied to an equivalent
+            // directory in /public during development and build, so
+            // assuming your favicons are in /static/favicons,
+            // you can reference them here
+            src: `/favicons/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/favicons/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ]
+      }
     }
   ]
 };
