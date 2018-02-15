@@ -40,7 +40,7 @@ const TemplateWrapper = ({ children, location }: any) => (
         { name: 'keywords', content: 'mattias wikström, developer, padawan' }
       ]}
     />
-    {location.pathname !== '/dscore' ? (
+    {location.pathname.replace(/\//g, '') !== 'dscore' ? (
       <Header
         isPostPage={location.pathname !== '/'}
         title="mattias.rocks"
