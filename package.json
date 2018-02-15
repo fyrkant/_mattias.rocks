@@ -36,7 +36,6 @@
     "gatsby"
   ],
   "license": "MIT",
-  "main": "",
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby develop",
