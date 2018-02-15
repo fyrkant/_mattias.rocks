@@ -17,10 +17,22 @@ import getTransitionStyle from './src/utils/getTransitionStyle';
 const timeout = 250;
 const historyExitingEventType = `history::exiting`;
 
+function _customEvent(event, params) {
+  params = params || { bubbles: false, cancelable: false, detail: undefined };
+  const evt = document.createEvent('CustomEvent');
+  evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+  return evt;
+}
+
+const hasCustomEvent = (window: any) =>
+  typeof window.CustomEvent === 'function';
+
 const getUserConfirmation = (pathname, callback) => {
-  const event = new CustomEvent(historyExitingEventType, {
-    detail: { pathname }
-  });
+  const event = hasCustomEvent(window)
+    ? new CustomEvent(historyExitingEventType, {
+        detail: { pathname }
+      })
+    : _customEvent(historyExitingEventType, { detail: { pathname } });
   window.dispatchEvent(event);
   setTimeout(() => {
     callback(true);
@@ -98,3 +110,13 @@ exports.replaceComponentRenderer = ({ props, loader }) => {
   }
   return React.createElement(ReplaceComponentRenderer, { ...props, loader });
 };
+
+(function() {
+  if (typeof window.CustomEvent === 'function') {
+    return false;
+  }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.CustomEvent = CustomEvent;
+})();
