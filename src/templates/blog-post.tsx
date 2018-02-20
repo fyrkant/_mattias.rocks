@@ -1,4 +1,5 @@
 // import Link from 'gatsby-link';
+import Link from 'gatsby-link';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { IPost } from '../pages/index';
@@ -21,6 +22,9 @@ const Template: React.SFC<IProps> = ({ data, location, transition }) => {
   return (
     <div style={transition && transition.style}>
       <Helmet title={title} />
+      <header className="back-link">
+        <Link to="/">{'<<'} Back</Link>
+      </header>
       <div className="post-container">
         <h1 className="title">{title}</h1>
         <p className="date">{date}</p>

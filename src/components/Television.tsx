@@ -5,9 +5,9 @@ const isCanvas = (element?: Element): element is HTMLCanvasElement =>
 
 export class Television extends React.Component<any, any> {
   private canvas: Element | undefined;
-  private canCtx: CanvasRenderingContext2D | null;
+  private canCtx?: CanvasRenderingContext2D | null;
   private time: number = 0;
-  private interval: NodeJS.Timer;
+  private interval?: NodeJS.Timer;
 
   public componentDidMount() {
     if (isCanvas(this.canvas)) {
@@ -19,19 +19,10 @@ export class Television extends React.Component<any, any> {
   public makeNoise() {
     // thank u https://stackoverflow.com/a/23572465
     if (this.context && isCanvas(this.canvas)) {
-      this.canvas.setAttribute(
-        'width',
-        (document.body.offsetWidth / 4).toString()
-      );
-      this.canvas.setAttribute(
-        'height',
-        (document.body.offsetHeight / 4).toString()
-      );
+      this.canvas.setAttribute('width', (document.body.offsetWidth / 4).toString());
+      this.canvas.setAttribute('height', (document.body.offsetHeight / 4).toString());
       if (this.canCtx) {
-        const imgd = this.canCtx.createImageData(
-          this.canvas.width,
-          this.canvas.height
-        );
+        const imgd = this.canCtx.createImageData(this.canvas.width, this.canvas.height);
         const pix = imgd.data;
 
         for (let i = 0, n = pix.length; i < n; i += 4) {
@@ -50,6 +41,8 @@ export class Television extends React.Component<any, any> {
   }
 
   public componentWillUnmount() {
-    clearInterval(this.interval);
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 }

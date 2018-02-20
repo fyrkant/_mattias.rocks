@@ -24,8 +24,7 @@ function _customEvent(event, params) {
   return evt;
 }
 
-const hasCustomEvent = (window: any) =>
-  typeof window.CustomEvent === 'function';
+const hasCustomEvent = (window: any) => typeof window.CustomEvent === 'function';
 
 const getUserConfirmation = (pathname, callback) => {
   const event = hasCustomEvent(window)
@@ -110,13 +109,3 @@ exports.replaceComponentRenderer = ({ props, loader }) => {
   }
   return React.createElement(ReplaceComponentRenderer, { ...props, loader });
 };
-
-(function() {
-  if (typeof window.CustomEvent === 'function') {
-    return false;
-  }
-
-  CustomEvent.prototype = window.Event.prototype;
-
-  window.CustomEvent = CustomEvent;
-})();

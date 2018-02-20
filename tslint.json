@@ -6,6 +6,6 @@
   "rules": {
     "interface-name": false,
     "object-literal-sort-keys": false,
-    "prettier": [true, { "singleQuote": true, "arrowParens": "always" }]
+    "prettier": [true, { "singleQuote": true, "arrowParens": "always", "printWidth": 140  }]
   }
 }

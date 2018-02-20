@@ -16,7 +16,7 @@ const data: Score[] = [
   },
   {
     nick: 'fyrkant',
-    start: new Date(1987, 3, 31)
+    start: new Date(1987, 2, 31)
   }
 ];
 
@@ -33,7 +33,7 @@ const addDays = (s: Score) => {
 };
 
 export class Highscore extends React.Component<any, any> {
-  public ol: Element | null;
+  public ol?: Element | null;
 
   public componentDidMount() {
     import('webfontloader').then((WebFont) => {

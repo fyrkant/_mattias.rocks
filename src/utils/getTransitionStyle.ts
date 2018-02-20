@@ -23,12 +23,6 @@ const getTransitionStyles = (timeout: number): TransitionStyles => {
   };
 };
 
-const getTransitionStyle = ({
-  timeout,
-  status
-}: {
-  timeout: number;
-  status: string;
-}) => getTransitionStyles(timeout)[status];
+const getTransitionStyle = ({ timeout, status }: { timeout: number; status: string }) => getTransitionStyles(timeout)[status];
 
 export default getTransitionStyle;

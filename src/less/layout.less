@@ -10,7 +10,9 @@
 
   header {
     width: fit-content;
-    transition: all ease-in 0.2s;
+    // opacity: 0;
+
+    transition: opacity ease-in 2s;
     h1 {
       a,
       a:active,
@@ -26,25 +28,27 @@
     p {
       font-family: monospace;
     }
-    div {
-      background: linear-gradient(90deg, @red, @turcoise);
-      width: 100%;
-      margin-top: -0.6em;
-      height: 0.4em;
+
+    &.first-page {
+      opacity: 1;
     }
 
     &.back-link {
-      text-transform: uppercase;
       font-family: monospace;
+      animation: slide-in 0.1s ease-in-out forwards;
     }
+  }
+}
 
-    &.small {
-      // max-height: 200px;
-      // transform: scale(0.3);
-      display: none;
-      height: 0;
-      // transform-origin: left;
-    }
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateY(-2rem) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -64,6 +68,11 @@
 }
 
 div.post-container {
+  span.block-info * {
+    font-size: 1em;
+    display: inline-block;
+    color: @dark-gray;
+  }
   .title {
     margin-bottom: 0;
   }
