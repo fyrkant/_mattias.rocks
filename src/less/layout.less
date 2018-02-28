@@ -53,6 +53,7 @@
 }
 
 .post-card {
+  margin-bottom: 1em;
   h2 {
     font-size: 1.5em;
     margin-bottom: 0;
@@ -64,6 +65,23 @@
   }
   p {
     margin-top: 0.5em;
+    margin-bottom: .2em;
+  }
+  .post-tags {
+    text-transform: uppercase;
+    font-size: 0.6em;
+
+    ul {
+      display: inline;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style-type: none;
+      margin: .2em;
+      padding: 0;
+      display: inline;
+    }
   }
 }
 
@@ -105,4 +123,38 @@ div.post-container {
       text-decoration: italic;
     }
   }
+}
+
+@keyframes ripple-anim {
+  0%   { border-width: 0; }
+  40% { 
+    height: 0;
+    width: 0;
+    border-width: 1500px;
+    margin-top: -1500px;
+    margin-left:-1500px; 
+    border-color: #009688;
+  }
+  41% { 
+    height: 0;
+    width: 0;
+    border-width: 1500px;
+    margin-top: -1500px;
+    margin-left:-1500px; 
+    border-color: #009688;
+  }
+  100% {
+    border-width: 1500px;
+    height: 2000px;
+    width: 2000px;
+    margin-top: -2500px;
+    margin-left:-2500px;
+    border-color: #009688;
+  }
+}
+
+@keyframes test{
+  0%{transform:scaleX(0)}
+  50%{transform:scaleX(10)}
+  100%{transform:scaleX(100)}
 }
