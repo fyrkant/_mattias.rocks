@@ -2,7 +2,8 @@ $(document).ready(function() {
   const ripple_wrap = $('.ripple-wrap');
   const rippler = $('.ripple');
   const finish = false;
-  const monitor = function(el) {
+  
+  const monitor = function (el) {
     var computed = window.getComputedStyle(el, null),
       borderwidth = parseFloat(computed.getPropertyValue('border-left-width'));
     if (!finish && borderwidth >= 1500) {

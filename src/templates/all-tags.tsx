@@ -7,6 +7,9 @@ const AllTags = ({ pathContext }: { pathContext: { tags: string[] } }) => {
   if (tags) {
     return (
       <div>
+        <header className="back-link">
+          <Link to="/">{'<<'} Back</Link>
+        </header>
         <ul>
           {tags.map((tag) => {
             return (

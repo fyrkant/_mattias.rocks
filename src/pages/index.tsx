@@ -1,8 +1,6 @@
 import Link from 'gatsby-link';
 import * as React from 'react';
 
-import '../less/ripple.less';
-
 export interface IFrontmatter {
   title: string;
   date: string;

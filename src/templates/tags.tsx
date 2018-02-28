@@ -48,6 +48,9 @@ class Tags extends React.Component<{
 
     return (
       <div>
+        <header className="back-link">
+          <Link to="/">{'<<'} Back</Link>
+        </header>
         <h1>{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {

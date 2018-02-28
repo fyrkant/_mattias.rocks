@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';
 // import '../../node_modules/modern-normalize/modern-normalize.css';
 import '../less/base.less';
 import '../less/layout.less';
+import '../less/ripple.less';
 
 interface Props {
   title: string;
@@ -13,12 +14,6 @@ interface Props {
 }
 
 class Header extends React.Component<Props> {
-  // public componentWillReceiveProps(nextProps: Props) {
-  //   debugger;
-  //   if (this.props.location.key !== nextProps.location.key) {
-  //     console.log('hello');
-  //   }
-  // }
   public render() {
     const { title, tagline } = this.props;
     return (
