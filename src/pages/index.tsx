@@ -37,35 +37,35 @@ const tagLink = (tag: string) => (
 class IndexPage extends React.Component<IProps> {
   public ripple: HTMLDivElement | undefined;
   public rippleWrap: HTMLDivElement | undefined;
-  public monitor(div: HTMLDivElement) {
-    // const computed = window.getComputedStyle(div);
-    // const borderwidth = parseFloat(computed.getPropertyValue('border-left-width'));
-    // if (!this.state.finish && borderwidth >= 1500) {
-    //   div.style.webkitAnimationPlayState = 'paused';
-    //   div.style.animationPlayState = 'paused';
-    // }
-    // if (this.state.finish) {
-    //   div.style.webkitAnimationPlayState = 'running';
-    //   div.style.animationPlayState = 'running';
-    //   return;
-    // } else {
-    //   window.requestAnimationFrame(function() {
-    //     monitor(div);
-    //   });
-    // }
-  }
-  public linkClick(e: any) {
-    if (this.ripple && this.rippleWrap) {
-      this.ripple.style.left = e.clientX + 'px';
-      this.ripple.style.top = e.clientY + 'px';
-      this.rippleWrap.classList.add('goripple');
-      window.requestAnimationFrame(() => {
-        if (this.ripple) {
-          this.monitor(this.ripple);
-        }
-      });
-    }
-  }
+  // public monitor(div: HTMLDivElement) {
+  // const computed = window.getComputedStyle(div);
+  // const borderwidth = parseFloat(computed.getPropertyValue('border-left-width'));
+  // if (!this.state.finish && borderwidth >= 1500) {
+  //   div.style.webkitAnimationPlayState = 'paused';
+  //   div.style.animationPlayState = 'paused';
+  // }
+  // if (this.state.finish) {
+  //   div.style.webkitAnimationPlayState = 'running';
+  //   div.style.animationPlayState = 'running';
+  //   return;
+  // } else {
+  //   window.requestAnimationFrame(function() {
+  //     monitor(div);
+  //   });
+  // }
+  // }
+  // public linkClick(e: any) {
+  //   if (this.ripple && this.rippleWrap) {
+  //     this.ripple.style.left = e.clientX + 'px';
+  //     this.ripple.style.top = e.clientY + 'px';
+  //     this.rippleWrap.classList.add('goripple');
+  //     // window.requestAnimationFrame(() => {
+  //     //   if (this.ripple) {
+  //     //     this.monitor(this.ripple);
+  //     //   }
+  //     // });
+  //   }
+  // }
   public render() {
     const { edges: posts } = this.props.data.allMarkdownRemark;
     return (
@@ -76,9 +76,7 @@ class IndexPage extends React.Component<IProps> {
           return (
             <div className="post-card" key={frontmatter.path}>
               <h2>
-                <Link to={frontmatter.path} onClick={(e) => this.linkClick(e)}>
-                  {frontmatter.title}
-                </Link>
+                <Link to={frontmatter.path}>{frontmatter.title}</Link>
               </h2>
               <time>{frontmatter.date}</time>
               <p>{frontmatter.excerpt}</p>
