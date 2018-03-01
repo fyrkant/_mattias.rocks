@@ -125,40 +125,6 @@ div.post-container {
   }
 }
 
-@keyframes ripple-anim {
-  0%   { border-width: 0; }
-  40% { 
-    height: 0;
-    width: 0;
-    border-width: 1500px;
-    margin-top: -1500px;
-    margin-left:-1500px; 
-    border-color: #009688;
-  }
-  41% { 
-    height: 0;
-    width: 0;
-    border-width: 1500px;
-    margin-top: -1500px;
-    margin-left:-1500px; 
-    border-color: #009688;
-  }
-  100% {
-    border-width: 1500px;
-    height: 2000px;
-    width: 2000px;
-    margin-top: -2500px;
-    margin-left:-2500px;
-    border-color: #009688;
-  }
-}
-
-@keyframes test{
-  0%{transform:scaleX(0)}
-  50%{transform:scaleX(10)}
-  100%{transform:scaleX(100)}
-}
-
 .ripple-wrap {
   display: none;
   overflow: hidden;
@@ -170,36 +136,6 @@ div.post-container {
   right: 0;
   bottom: 0;
 }
-@-webkit-keyframes RIPPLER {
-  0% {
-    border-width: 0;
-  }
-  40% {
-    height: 0;
-    width: 0;
-    border-width: 1500px;
-    margin-top: -1500px;
-    margin-left: -1500px;
-    border-color: #fff;
-  }
-
-  41% {
-    height: 0;
-    width: 0;
-    border-width: 1500px;
-    margin-top: -1500px;
-    margin-left: -1500px;
-    border-color: #fff;
-  }
-  100% {
-    border-width: 1500px;
-    height: 2000px;
-    width: 2000px;
-    margin-top: -2500px;
-    margin-left: -2500px;
-    border-color: #fff;
-  }
-}
 @keyframes RIPPLER {
   0% {
     border-width: 0;
@@ -210,7 +146,6 @@ div.post-container {
     border-width: 1500px;
     margin-top: -1500px;
     margin-left: -1500px;
-    border-color: #fff;
   }
   41% {
     height: 0;
@@ -218,15 +153,6 @@ div.post-container {
     border-width: 1500px;
     margin-top: -1500px;
     margin-left: -1500px;
-    border-color: #fff;
-  }
-  100% {
-    border-width: 1500px;
-    height: 2000px;
-    width: 2000px;
-    margin-top: -2500px;
-    margin-left: -2500px;
-    border-color: #fff;
   }
 }
 .ripple {
@@ -247,10 +173,7 @@ div.post-container {
   display: block;
 }
 .ripple-wrap.goripple .ripple {
-  -webkit-animation-name: RIPPLER;
-  -webkit-animation-duration: 1.5s;
-  -webkit-animation-fill-mode: forwards;
   animation-name: RIPPLER;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
+  animation-duration: 500ms;
+  animation-direction: forwards;
 }
