@@ -13,11 +13,11 @@ const getTransitionStyles = (timeout: number): TransitionStyles => {
       opacity: 0
     },
     entered: {
-      transition: `opacity ${timeout}ms ease-in-out`,
+      transition: `opacity ${timeout}ms ease-in`,
       opacity: 1
     },
     exiting: {
-      transition: `opacity ${timeout}ms ease-in-out`,
+      transition: `opacity ${timeout}ms ease-in`,
       opacity: 0
     }
   };

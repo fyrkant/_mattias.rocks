@@ -14,7 +14,7 @@ import { Transition } from 'react-transition-group';
 
 import getTransitionStyle from './src/utils/getTransitionStyle';
 
-const timeout = 250;
+const timeout = 200;
 const historyExitingEventType = `history::exiting`;
 
 function _customEvent(event, params) {
