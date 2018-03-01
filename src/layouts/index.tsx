@@ -6,7 +6,6 @@ import Helmet from 'react-helmet';
 // import '../../node_modules/modern-normalize/modern-normalize.css';
 import '../less/base.less';
 import '../less/layout.less';
-import '../less/ripple.less';
 
 interface Props {
   title: string;
