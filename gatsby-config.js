@@ -34,20 +34,20 @@ module.exports = {
         path: `${__dirname}/src`,
       }
     },
-    {
-      resolve: `gatsby-source-graphcms`,
-      options: {
-        endpoint: `https://api.graphcms.com/simple/v1/cjcxxfzrv2avm0124y7molwz2`,
-        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MTcwOTI2OTQsImNsaWVudElkIjoiY2l2Z29zNmNqMDE5MjAxODRucDAxZGRkMiIsInByb2plY3RJZCI6ImNqY3h4ZnpydjJhdm0wMTI0eTdtb2x3ejIiLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqY3h4dGo0bjI2ZDUwMTI3em9ubHNoaTkifQ.sbRHpzbPRkGedcQnyuaxlLnmRTzTJRN49dhZuz9m50E',
-        query: `{
-          allPosts {
-            id
-            title
-            content
-          }
-        }`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-graphcms`,
+    //   options: {
+    //     endpoint: `https://api.graphcms.com/simple/v1/cjcxxfzrv2avm0124y7molwz2`,
+    //     token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MTcwOTI2OTQsImNsaWVudElkIjoiY2l2Z29zNmNqMDE5MjAxODRucDAxZGRkMiIsInByb2plY3RJZCI6ImNqY3h4ZnpydjJhdm0wMTI0eTdtb2x3ejIiLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqY3h4dGo0bjI2ZDUwMTI3em9ubHNoaTkifQ.sbRHpzbPRkGedcQnyuaxlLnmRTzTJRN49dhZuz9m50E',
+    //     query: `{
+    //       allPosts {
+    //         id
+    //         title
+    //         content
+    //       }
+    //     }`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {

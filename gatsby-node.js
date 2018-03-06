@@ -28,6 +28,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               title
               excerpt
               tags
+              draft
             }
           }
         }
@@ -39,16 +40,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges;
-    posts
-      .filter(({node}) => !node.frontmatter.draft)
-      .forEach(({ node }) =>
+    const filteredPosts = posts
+      .filter(({node}) => node.frontmatter.draft !== true);
+
+      
+    filteredPosts.forEach(({ node }) =>
         createPage({
           path: node.frontmatter.path,
           component: blogPostTemplate
         })
       );
 
-    const tags = posts.reduce(
+    const tags = filteredPosts.reduce(
       (acc, el) =>
         el.node.frontmatter.tags
           ? [...new Set([...acc, ...el.node.frontmatter.tags])] // Fancy way to get unique values of array.
@@ -75,3 +78,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     });
   });
 };
+
+exports.onCreateNode = ({ node, boundActionCreators }) => {
+  const { createNode, createNodeField } = boundActionCreators
+  console.log(node)
+  // Transform the new node here and create a new node or
+  // create a new node field.
+}

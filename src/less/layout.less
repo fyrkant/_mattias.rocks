@@ -34,7 +34,16 @@
     }
 
     &.back-link {
+      a {
+        color: @dark-gray;
+        border: 0;
+        &:hover {
+          color: @black;
+        }
+      }
       font-family: monospace;
+      position:absolute;
+      top: .2em;
       animation: slide-in 0.1s ease-in-out forwards;
     }
   }
@@ -86,6 +95,9 @@
 }
 
 div.post-container {
+  h1 {
+    font-size: 3em;
+  }
   span.block-info * {
     font-size: 1em;
     display: inline-block;
@@ -100,8 +112,8 @@ div.post-container {
     font-family: monospace;
   }
   p > code {
-    background-color: @gray;
-    border: 1px solid @dark-gray;
+    background-color: lighten(@gray, 15);
+    border: 1px solid lighten(@red, 25);
     color: @black;
     padding: 0.2em;
 
