@@ -81,7 +81,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
 exports.onCreateNode = ({ node, boundActionCreators }) => {
   const { createNode, createNodeField } = boundActionCreators
-  console.log(node)
+  // console.log(node)
   // Transform the new node here and create a new node or
   // create a new node field.
 }
