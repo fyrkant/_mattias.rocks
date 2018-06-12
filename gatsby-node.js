@@ -8,8 +8,8 @@
 
 const path = require('path');
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   const blogPostTemplate = path.resolve('./src/templates/blog-post.tsx');
   const tagTemplate = path.resolve('./src/templates/tags.tsx');
@@ -78,10 +78,3 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     });
   });
 };
-
-exports.onCreateNode = ({ node, boundActionCreators }) => {
-  const { createNode, createNodeField } = boundActionCreators
-  // console.log(node)
-  // Transform the new node here and create a new node or
-  // create a new node field.
-}

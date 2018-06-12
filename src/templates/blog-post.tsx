@@ -1,36 +1,34 @@
 // import Link from 'gatsby-link';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { IPost } from '../pages/index';
 
+import Layout from '../components/Layout';
 import '../less/prism.less';
-import { TransitionStyle } from '../utils/getTransitionStyle';
 
 interface IProps {
   data: {
     markdownRemark: IPost;
   };
   location: string;
-  transition?: { style: TransitionStyle };
 }
 
-const Template: React.SFC<IProps> = ({ data, location, transition }) => {
-  const { markdownRemark: post } = data;
-  const { frontmatter, html } = post;
-  const { title, date } = frontmatter;
+const Template: React.SFC<IProps> = (props) => {
   return (
-    <div style={transition && transition.style}>
-      <Helmet title={title} />
-      <header className="back-link">
-        <Link to="/">{'<<'} Back</Link>
-      </header>
-      <div className="post-container">
-        <h1 className="title">{title}</h1>
-        <p className="date">{date}</p>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+    <Layout location={props.location}>
+      <div>
+        <Helmet title={props.data.markdownRemark.frontmatter.title} />
+        <header className="back-link">
+          <Link to="/">{'<<'} Back</Link>
+        </header>
+        <div className="post-container">
+          <h1 className="title">{props.data.markdownRemark.frontmatter.title}</h1>
+          <p className="date">{props.data.markdownRemark.frontmatter.date}</p>
+          <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

@@ -1,52 +1,17 @@
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 // Components
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
+import Layout from '../components/Layout';
 
-class Tags extends React.Component<{
-  pathContext: { tag: string };
-  data: {
-    allMarkdownRemark: {
-      totalCount: number;
-      edges: Array<{
-        node: {
-          frontmatter: {
-            path: string;
-            title: string;
-          };
-        };
-      }>;
-    };
-  };
-}> {
-  public static propTypes = {
-    pathContext: PropTypes.shape({
-      tag: PropTypes.string.isRequired
-    }),
-    data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.shape({
-        totalCount: PropTypes.number.isRequired,
-        edges: PropTypes.arrayOf(
-          PropTypes.shape({
-            node: PropTypes.shape({
-              frontmatter: PropTypes.shape({
-                path: PropTypes.string.isRequired,
-                title: PropTypes.string.isRequired
-              })
-            })
-          }).isRequired
-        )
-      })
-    })
-  };
-  public render() {
-    const { pathContext, data } = this.props;
-    const { tag } = pathContext;
-    const { edges, totalCount } = data.allMarkdownRemark;
-    const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`;
+const Tags = (props) => {
+  const { pathContext, data } = props;
+  const { tag } = pathContext;
+  const { edges, totalCount } = data.allMarkdownRemark;
+  const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`;
 
-    return (
+  return (
+    <Layout location={props.location}>
       <div>
         <header className="back-link">
           <Link to="/">{'<<'} Back</Link>
@@ -68,14 +33,12 @@ class Tags extends React.Component<{
         */}
         <Link to="/tags">All tags</Link>
       </div>
-    );
-  }
-}
-
-export default Tags;
+    </Layout>
+  );
+};
 
 export const pageQuery = graphql`
-  query TagPage($tag: String) {
+  query TagPage($tag: String!) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
@@ -93,3 +56,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default Tags;

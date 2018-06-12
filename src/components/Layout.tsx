@@ -31,7 +31,7 @@ const TemplateWrapper = ({ children, location }: any) => (
       meta={[{ name: 'description', content: 'mattias.rocks' }, { name: 'keywords', content: 'mattias wikström, developer, padawan' }]}
     />
     {location.pathname === '/' && <Header title="mattias.rocks" tagline="programming padawan" />}
-    {children()}
+    {children}
   </div>
 );
 
