@@ -71,25 +71,4 @@ const IndexPage: React.SFC<any> = (props) => (
   />
 );
 
-// export const query = graphql`
-//   query IndexQuery {
-//     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, filter: { frontmatter: { draft: { ne: true } } }) {
-//       totalCount
-//       edges {
-//         node {
-//           id
-//           html
-//           frontmatter {
-//             title
-//             date(formatString: "MMMM DD, YYYY")
-//             path
-//             tags
-//             excerpt
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export default IndexPage;

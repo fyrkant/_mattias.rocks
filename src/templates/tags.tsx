@@ -5,8 +5,8 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 
 const Tags = (props) => {
-  const { pathContext, data } = props;
-  const { tag } = pathContext;
+  const { pageContext, data } = props;
+  const { tag } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
   const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`;
 

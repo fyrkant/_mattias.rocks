@@ -75,10 +75,6 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            // Everything in /static will be copied to an equivalent
-            // directory in /public during development and build, so
-            // assuming your favicons are in /static/favicons,
-            // you can reference them here
             src: `/favicons/android-chrome-192x192.png`,
             sizes: `192x192`,
             type: `image/png`,
@@ -90,6 +86,18 @@ module.exports = {
           },
         ]
       }
-    }
+    },
+    // {
+    //   resolve: "gatsby-source-strava-activities",
+    //   options: {
+    //     // This is the "Access Token" from:
+    //     // https://www.strava.com/settings/api
+    //     authToken: 'f36dfd8911b584d0876e290390139ef871f723b1',
+    //     // [Optional] An epoch timestamp to use for filtering activities that have taken place after a certain time.
+    //     after: '',
+    //     // An epoch timestamp to use for filtering activities that have taken place before a certain time.
+    //     before: '',
+    //    }
+    // }
   ]
 };
