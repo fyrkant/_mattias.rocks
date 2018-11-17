@@ -7,6 +7,7 @@
 // You can delete this file if you're not using it
 
 const path = require('path');
+const Arr = require('@ephox/katamari').Arr
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -40,18 +41,17 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges;
-    const filteredPosts = posts
-      .filter(({node}) => node.frontmatter.draft !== true);
+    const filteredPosts = Arr.filter(posts, ({node}) => node.frontmatter.draft !== true);
 
       
-    filteredPosts.forEach(({ node }) =>
-        createPage({
-          path: node.frontmatter.path,
-          component: blogPostTemplate
-        })
-      );
+    Arr.each(filteredPosts, ({ node }) =>
+      createPage({
+        path: node.frontmatter.path,
+        component: blogPostTemplate
+      })
+    );
 
-    const tags = filteredPosts.reduce(
+    const tags = Arr.foldl(filteredPosts,
       (acc, el) =>
         el.node.frontmatter.tags
           ? [...new Set([...acc, ...el.node.frontmatter.tags])] // Fancy way to get unique values of array.

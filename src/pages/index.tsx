@@ -22,7 +22,25 @@ const tagLink = (tag: string) => (
   </li>
 );
 
-const IndexPage: React.SFC<any> = (props) => (
+interface QueryData {
+  allMarkdownRemark: {
+    totalCount: number;
+    edges: Array<{
+      node: {
+        id: string;
+        html: string;
+        frontmatter: {
+          title: string;
+          date: string;
+          path: string;
+          tags: string[];
+          excerpt: string;
+        };
+      };
+    }>;
+  };
+}
+const IndexPage: React.SFC<{ location: string }> = (props) => (
   <StaticQuery
     query={graphql`
       query IndexQuery {
@@ -44,7 +62,7 @@ const IndexPage: React.SFC<any> = (props) => (
         }
       }
     `}
-    render={(data) => {
+    render={(data: QueryData) => {
       return (
         <Layout location={props.location}>
           <div>
