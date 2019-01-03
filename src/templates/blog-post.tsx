@@ -1,5 +1,5 @@
 // import Link from 'gatsby-link';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { IPost } from '../pages/index';

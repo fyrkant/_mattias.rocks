@@ -1,4 +1,4 @@
-import * as differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
+import { differenceInCalendarDays } from 'date-fns';
 import * as React from 'react';
 
 interface Score {
@@ -37,7 +37,7 @@ export class Highscore extends React.Component<any, any> {
 
   public componentDidMount() {
     import('webfontloader').then((WebFont) => {
-      if (!document.documentElement.classList.contains('wf-active')) {
+      if (document.documentElement && !document.documentElement.classList.contains('wf-active')) {
         WebFont.load({
           google: {
             families: ['VT323']

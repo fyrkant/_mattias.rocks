@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // Components
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 
 const Tags = (props) => {
